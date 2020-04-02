@@ -1,7 +1,6 @@
 # This is a Hi-Lo Game in which you think of a number and the computer guesses it.
 # This program is an implementation of a binary chop or binary search algorithm.
-# pass statement in python is used if we don't intend to write code under a condition or a block to make the program
-# syntactically correct
+
 
 low = 1
 high = 1000
