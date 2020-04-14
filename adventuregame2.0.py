@@ -1,11 +1,3 @@
-# Modify the program so that the exits is a dictionary rather than a list,
-# with the keys being the numbers of the locations and the values being
-# dictionaries holding the exits (as they do at present). No change should be needed to the actual code
-# Once that is working, create another dictionary that contains words that
-# players may use. These words will be the keys, and their values will be
-# a single letter that the program can use to determine which way to go.
-# split() splits the strings with a delimiter of our choice in between
-
 locations = {0: "You are sitting in front of a computer learning Python",
              1: "You are standing at the end of a road before a small brick building",
              2: "You are at the top of a hill",
@@ -25,9 +17,7 @@ vocabulary = {"QUIT": "Q",
               "SOUTH": "S",
               "EAST": "E",
               "WEST": "W"}
-# print(locations[0].split())
-# print(locations[3].split(","))
-# print(' '.join(locations[0].split()))
+
 loc = 1
 while True:
     available_exits = ", ".join(exits[loc].keys())
@@ -46,9 +36,7 @@ while True:
             if word in vocabulary:
                 direction = vocabulary[word]
                 break
-        # for word in vocabulary:
-        #     if word in direction:
-        #     direction = vocabulary[word]
+        
 
     if direction in exits[loc]:
         loc = exits[loc][direction]
