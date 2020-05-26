@@ -1,0 +1,67 @@
+x = []
+y = []
+xy = []
+x2 = []
+y2 = []
+sum_x = 0
+sum_y = 0
+sum_x2 = 0
+sum_y2 = 0
+sum_xy = 0
+
+n = int(input("Please enter the length of the lists: "))
+
+print("Enter the numbers in list x: ")
+for i in range(n):
+    x.append(int(input()))
+    x2.append(x[i]**2)
+
+print("Enter the numbers in list y: ")
+for i in range(n):
+    y.append(int(input()))
+    y2.append(y[i]**2)
+
+x = sorted(x)
+y = sorted(y)
+x2 = sorted(x2)
+y2 = sorted(y2)
+
+i = 0
+while i < n:
+    xy.append(x[i] * y[i])
+    sum_x += x[i]
+    sum_y += y[i]
+    sum_x2 += x2[i]
+    sum_y2 += y2[i]
+    sum_xy += xy[i]
+
+xy = sorted(xy)
+
+print("x = ", x)
+print("y = ", y)
+print("x2 = ", x2)
+print("y2 = ", y2)
+print("xy = ", xy)
+
+cov_xy = (sum_xy/n) - ((sum_x * sum_y)/(n*n))
+sigma_x = ((sum_x2/n) - ((sum_x/n)**2))**0.5
+sigma_y = ((sum_y2/n) - ((sum_y/n)**2))**0.5
+print("covariance is ", cov_xy)
+print("sigma x is ", sigma_x)
+print("sigma y is ", sigma_y)
+
+r = cov_xy/(sigma_x * sigma_y) # Coefficient of correlation
+print("Coefficient of correlation is ", r)
+
+mean_x = sum_x / n
+mean_y = sum_y / n
+
+b_yx = r * (sigma_y / sigma_x)
+b_xy = r * (sigma_x / sigma_y)
+
+X = int(input("Finding Y when X is "))
+
+
+# Equations of regression
+
+Y = mean_y + b_yx * (X - mean_x) # y on x
